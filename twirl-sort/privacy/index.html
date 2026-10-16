@@ -33,11 +33,11 @@
   <nav class="toc" aria-label="Language"><a class="chip" href="#ru">Русский</a><a class="chip" href="#en">English</a><a class="chip" href="/">← На главную</a></nav>
   <div class="prose"><div id="ru" lang="ru">
 <h1>Русский</h1>
-<p><strong>Дата обновления:</strong> 15 октября 2026 г. (версия 1.3.0)</p>
+<p><strong>Дата обновления:</strong> 17 октября 2026 г. (версия 1.3.1)</p>
 
 <h2>Коротко</h2>
 <p>Twirl Sort — головоломка. <strong>Сама игра ничего не собирает и никуда не отправляет</strong>:
-прогресс хранится только на устройстве, вся кампания доступна без интернета. В некоторых сборках
+прогресс хранится только на устройстве, вся кампания доступна без интернета. В сборке для магазина
 есть реклама и необязательные покупки — их обеспечивают сторонние SDK, которые собирают свои
 данные (описание ниже). Сбор данных этими SDK начинается только после того, как вы ответите на
 диалог согласия при первом запуске.</p>
@@ -49,12 +49,11 @@
 никуда не отправляется самой игрой. При удалении приложения данные удаляются.</p>
 
 <h2>Реклама</h2>
-<p>В зависимости от сборки рекламу показывают <strong>Google AdMob</strong> или
-<strong>«Яндекс Рекламная сеть» (вместе с AppMetrica)</strong>. Эти SDK могут собирать и передавать
-своим партнёрам: идентификаторы устройства и рекламный идентификатор (GAID / Яндекс ID), данные о
-взаимодействии с рекламой (показы, клики), сведения о сети и устройстве, приблизительное
-местоположение — если оно разрешено в системе. Передача идёт по HTTPS. Мы эти данные не получаем
-и не храним. Вы можете:</p>
+<p>Рекламу показывает <strong>«Яндекс Рекламная сеть» (вместе с AppMetrica)</strong>. Эти SDK могут
+собирать и передавать своим партнёрам: идентификаторы устройства и рекламный идентификатор
+(Яндекс ID / рекламный идентификатор Android), данные о взаимодействии с рекламой (показы, клики),
+сведения о сети и устройстве, приблизительное местоположение — если оно разрешено в системе.
+Передача идёт по HTTPS. Мы эти данные не получаем и не храним. Вы можете:</p>
 <ul>
 <li>выбрать обезличенную рекламу (или отказаться) в диалоге согласия при первом запуске;</li>
 <li>сбросить или удалить рекламный идентификатор в настройках Android (Настройки → Google → Реклама);</li>
@@ -67,26 +66,29 @@
 «Отключить рекламу» навсегда выключает полноэкранную рекламу.</p>
 
 <h2>Покупки в приложении</h2>
-<p>Необязательные покупки (отключение рекламы, пакеты подсказок, стартовый набор) обрабатывают
-<strong>Google Play Billing</strong> или <strong>RuStore Pay</strong>. Платёжные данные обрабатывают
-Google или VK/RuStore согласно их собственным политикам конфиденциальности; данные карты нам не
-передаются. Магазин передаёт игре идентификатор товара и токен покупки — они хранятся локально,
-чтобы игра помнила, что вам принадлежит. Покупки можно восстановить в игровом магазине.</p>
+<p>Необязательные покупки (отключение рекламы, пакеты подсказок, стартовый набор) обрабатывает
+<strong>RuStore Pay</strong>. Платёжные данные обрабатывает VK/RuStore согласно собственной
+политике конфиденциальности; данные карты нам не передаются. Магазин передаёт игре идентификатор
+товара и токен покупки — они хранятся локально, чтобы игра помнила, что вам принадлежит. Покупки
+можно восстановить в игровом магазине.</p>
 
 <h2>Разрешения</h2>
 <p>Самой игре нужно только <code>VIBRATE</code> (необязательная вибрация, отключается в настройках).
-Рекламные и платёжные SDK добавляют <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>,
-а в сборках AdMob — <code>AD_ID</code>.</p>
+Рекламный SDK Яндекса и AppMetrica добавляют <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>,
+разрешение рекламного идентификатора <code>AD_ID</code> (транзитивно) и
+<code>RECEIVE_BOOT_COMPLETED</code> для собственных фоновых задач (например, отложенной аналитики);
+сама игра при загрузке устройства ничего не запускает.</p>
 
-<h2>Дети</h2>
-<p>Игра рассчитана на все возрасты, пользовательского контента и чатов в ней нет. Рекламные SDK
-настроены в возрастной режим (child-directed / возрастной ценз), регистрацию детей игра не делает
-и данные о детях целенаправленно не собирает.</p>
+<h2>Аудитория</h2>
+<p>Twirl Sort рассчитана на общую и подростковую аудиторию (13+), она не предназначена для детей и
+не ориентирована на них; пользовательского контента и чатов в игре нет. Рекламные SDK настроены в
+возрастном режиме (возрастной ценз), регистрацию детей игра не делает и данные о детях
+целенаправленно не собирает.</p>
 
 <h2>Удаление данных</h2>
 <p>Всё, что хранит игра, удаляется вместе с приложением. Рекламные идентификаторы сбрасываются или
-удаляются в настройках Android. Сведения о покупках хранит Google Play или RuStore — для их
-удаления обратитесь в поддержку магазина.</p>
+удаляются в настройках Android. Сведения о покупках хранит RuStore — для их удаления обратитесь в
+поддержку магазина.</p>
 
 <h2>Изменения</h2>
 <p>Если следующая версия изменит набор собираемых данных, эта политика будет обновлена до её выхода.</p>
@@ -96,13 +98,13 @@ Google или VK/RuStore согласно их собственным полит
 </div><hr><div id="en" lang="en">
 
 <h1>English</h1>
-<p><strong>Last updated:</strong> 15 October 2026 (version 1.3.0)</p>
+<p><strong>Last updated:</strong> 17 October 2026 (version 1.3.1)</p>
 
 <h2>Summary</h2>
 <p>Twirl Sort is a puzzle game. <strong>The game itself does not collect or send any personal
 data</strong> — your progress is stored only on your device, and the whole campaign is playable
-offline. Some builds show advertising and offer optional in-app purchases; those features are
-provided by third-party SDKs, which collect their own data as described below. Collection by
+offline. The store build shows advertising and offers optional in-app purchases; those features
+are provided by third-party SDKs, which collect their own data as described below. Collection by
 those SDKs starts only after you answer the consent dialog shown on first launch.</p>
 
 <h2>What the app stores on your device</h2>
@@ -112,15 +114,14 @@ and the daily-puzzle date. This data lives in the app's private storage and is n
 game to anyone. Uninstalling the app removes it.</p>
 
 <h2>Advertising</h2>
-<p>Depending on the build, ads are served by <strong>Google AdMob</strong> or by
-<strong>Yandex Mobile Ads (with AppMetrica)</strong>. These SDKs may collect and share with their
-own partners: device and advertising identifiers (Google Advertising ID / Yandex ID), information
-about interaction with ads (impressions, clicks), network and device information, and approximate
-location when the system allows it. They transmit data over HTTPS. We do not receive or store
-that data ourselves. You can:</p>
+<p>Ads are served by <strong>Yandex Mobile Ads (with AppMetrica)</strong>. These SDKs may collect
+and share with their own partners: device and advertising identifiers (Yandex ID / Android
+advertising ID), information about interaction with ads (impressions, clicks), network and device
+information, and approximate location when the system allows it. They transmit data over HTTPS.
+We do not receive or store that data ourselves. You can:</p>
 <ul>
 <li>choose non-personalized ads (or decline) in the consent dialog shown on first launch;</li>
-<li>reset or delete the Advertising ID in your Android settings (Settings → Google → Ads);</li>
+<li>reset or delete the advertising ID in your Android settings (Settings → Google → Ads);</li>
 <li>turn off location permission for the app in Android settings.</li>
 </ul>
 <p>The game shows only ads you start yourself (rewarded videos for an extra hint or a doubled
@@ -130,25 +131,28 @@ levels. A one-time "Remove ads" purchase switches full-screen ads off permanentl
 
 <h2>In-app purchases</h2>
 <p>Optional purchases (remove-ads, hint packs, starter pack) are processed by
-<strong>Google Play Billing</strong> or <strong>RuStore Pay</strong>. Payment data is handled by
-Google or VK/RuStore under their own privacy policies; we never see your card or payment details.
-The store passes us a product identifier and a purchase token, which the game keeps locally to
-remember what you own. Purchases can be restored from the in-game shop.</p>
+<strong>RuStore Pay</strong>. Payment data is handled by VK/RuStore under its own privacy policy;
+we never see your card or payment details. The store passes us a product identifier and a purchase
+token, which the game keeps locally to remember what you own. Purchases can be restored from the
+in-game shop.</p>
 
 <h2>Permissions</h2>
 <p>The game itself needs only <code>VIBRATE</code> (optional haptics, can be switched off).
-Advertising and billing SDKs add <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code> and,
-in AdMob builds, <code>AD_ID</code>.</p>
+The Yandex advertising and AppMetrica SDKs add <code>INTERNET</code>,
+<code>ACCESS_NETWORK_STATE</code>, the advertising ID permission <code>AD_ID</code> (transitively),
+and <code>RECEIVE_BOOT_COMPLETED</code> for their own background tasks (e.g. deferred analytics);
+the game itself does not launch anything at device boot.</p>
 
-<h2>Children</h2>
-<p>The game is designed for all ages and contains no user-generated content and no chat. Ad
-SDKs are configured in age-appropriate / child-directed mode, and the game does not register
-children or knowingly collect data from them.</p>
+<h2>Audience</h2>
+<p>Twirl Sort is aimed at a general and teen audience (13+); it is not designed for or directed at
+children, and it contains no user-generated content and no chat. The advertising SDKs are
+configured in an age-appropriate mode, and the game does not register children or knowingly
+collect data from them.</p>
 
 <h2>Data deletion</h2>
 <p>You can delete everything the game keeps by uninstalling the app. Advertising identifiers are
-reset or deleted in Android settings. Purchase records are managed by Google Play or RuStore —
-contact their support for account-level deletion.</p>
+reset or deleted in Android settings. Purchase records are managed by RuStore — contact their
+support for account-level deletion.</p>
 
 <h2>Changes</h2>
 <p>If a future version changes what is collected, this policy will be updated before that version
