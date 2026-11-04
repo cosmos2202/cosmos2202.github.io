@@ -38,13 +38,15 @@
 <h2>Коротко</h2>
 <p>«Кубики» — головоломка с фигурами из блоков. <strong>Сама игра ничего не собирает и никуда не
 отправляет</strong>: прогресс хранится только на устройстве, игра полностью доступна без интернета.
-В сборке для магазина есть реклама и необязательные покупки — их обеспечивают сторонние SDK,
+В сборке для магазина есть реклама (в некоторых версиях — также необязательные покупки);
+эти возможности обеспечивают сторонние SDK,
 которые собирают свои данные (описание ниже). Сбор данных этими SDK начинается только после того,
 как вы ответите на диалог согласия при первом запуске.</p>
 
 <h2>Что хранит приложение</h2>
 <p>Только игровой прогресс: рекорды (классика, ежедневка, спринт), монеты и жетоны отмены, даты
-ежедневной серии, купленные права (например «Отключить рекламу»), выбранный язык, настройки звука,
+ежедневной серии, журнал идентификаторов выданных покупок (purchaseId) и открытые ими права
+(например «Отключить рекламу»), выбранный язык, настройки звука,
 выбор согласия на рекламу. Всё это лежит в приватном хранилище приложения и никуда не отправляется
 самой игрой. При удалении приложения данные удаляются.</p>
 
@@ -61,15 +63,20 @@
 </ul>
 <p>Правила рекламы в игре: полноэкранное объявление показывается только в естественной паузе —
 после завершения партии «ходов нет», — никогда при запуске, никогда посреди партии и не чаще одного
-раза за сеанс. Видео «продолжить партию» необязательное: вы запускаете его сами, и награда выдаётся
+раза за запуск приложения. Видео «продолжить партию» необязательное: вы запускаете его сами, и награда выдаётся
 только когда рекламная сеть подтвердила просмотр. Без интернета игра просто скрывает кнопки
-рекламы. Покупка «Отключить рекламу» навсегда выключает всю рекламу.</p>
+рекламы. В тех версиях игры, где доступна разовая покупка «Отключить рекламу», она навсегда
+выключает всю рекламу.</p>
 
 <h2>Покупки в приложении</h2>
-<p>Необязательные покупки (отключение рекламы, наборы монет) обрабатывает <strong>RuStore Pay</strong>.
-Платёжные данные обрабатывает VK/RuStore согласно собственной политике конфиденциальности; данные
-карты нам не передаются. Магазин передаёт игре идентификатор товара и токен покупки — они хранятся
-локально, чтобы игра помнила, что вам принадлежит. Покупки можно восстановить в игровом магазине.</p>
+<p>В тех версиях игры, где есть необязательные покупки (отключение рекламы, наборы монет), оплату
+обрабатывает <strong>RuStore Pay</strong>. Платёжные данные обрабатывает VK/RuStore согласно
+собственной политике конфиденциальности; данные карты нам не передаются. После оплаты магазин
+подтверждает покупку игре, а игра хранит в приватном хранилище локальный журнал идентификаторов
+выданных покупок (purchaseId) и открытые ими права — так игра помнит, что вам принадлежит, и может
+dоподтвердить покупку, если приложение закрылось между оплатой и выдачей. Журнал никуда не
+отправляется самой игрой. Там, где покупки доступны, их можно восстановить в игровом магазине
+кнопкой «Восстановить покупки».</p>
 
 <h2>Разрешения</h2>
 <p>Самой игре нужно только <code>VIBRATE</code> (необязательная вибрация, отключается в настройках).
@@ -79,10 +86,11 @@
 сама игра при загрузке устройства ничего не запускает.</p>
 
 <h2>Аудитория</h2>
-<p>«Кубики» рассчитаны на общую и подростковую аудиторию (13+), игра не предназначена для детей и
-не ориентирована на них; пользовательского контента и чатов в ней нет. Рекламные SDK настроены в
-возрастном режиме (возрастной ценз), регистрацию детей игра не делает и данные о детях
-целенаправленно не собирает.</p>
+<p>«Кубики» рассчитаны на общую и подростковую аудиторию (возрастная категория в магазине — 12+),
+игра не предназначена для детей и не ориентирована на них; пользовательского контента и чатов в ней
+нет. Рекламные SDK работают в обычном режиме (флаг «детская аудитория» не включается, поскольку
+игра не детская), регистрацию детей игра не делает и данные о детях целенаправленно не
+собирает.</p>
 
 <h2>Удаление данных</h2>
 <p>Всё, что хранит игра, удаляется вместе с приложением. Рекламные идентификаторы сбрасываются или
@@ -102,14 +110,15 @@
 <h2>Summary</h2>
 <p>Cubix is a block puzzle game. <strong>The game itself does not collect or send any personal
 data</strong> — your progress is stored only on your device, and the game is fully playable
-offline. The store build shows advertising and offers optional in-app purchases; those features
-are provided by third-party SDKs, which collect their own data as described below. Collection by
-those SDKs starts only after you answer the consent dialog shown on first launch in the store
-build.</p>
+offline. The store build shows advertising (some versions also offer optional in-app purchases);
+those features are provided by third-party SDKs, which collect their own data as described below.
+Collection by those SDKs starts only after you answer the consent dialog shown on first launch in
+the store build.</p>
 
 <h2>What the app stores on your device</h2>
 <p>Game progress only: best scores (classic, daily, sprint), coins and undo tokens, daily streak
-dates, purchased entitlements (for example "remove ads"), chosen language, sound settings,
+dates, a local journal of delivered purchase identifiers (purchaseId) and the entitlements they
+unlock (for example "remove ads"), chosen language, sound settings,
 ad-consent choice. This data lives in the app's private storage and is never sent by the game to
 anyone. Uninstalling the app removes it.</p>
 
@@ -126,15 +135,20 @@ We do not receive or store that data ourselves. You can:</p>
 </ul>
 <p>Ad rules in the game: a full-screen ad appears only at a natural pause — after a game ends with
 "no moves left" — never at launch, never in the middle of a game, and no more than once per app
-session. The "continue the game" video is optional: you start it yourself, and the reward is given
+launch. The "continue the game" video is optional: you start it yourself, and the reward is given
 only when the ad network confirms the video was watched. If you are offline, the game simply hides
-the ad buttons. A one-time "Remove ads" purchase switches all advertising off permanently.</p>
+the ad buttons. In game versions that offer a one-time "Remove ads" purchase, it switches all
+advertising off permanently.</p>
 
 <h2>In-app purchases</h2>
-<p>Optional purchases (remove-ads, coin packs) are processed by <strong>RuStore Pay</strong>.
-Payment data is handled by VK/RuStore under its own privacy policy; we never see your card or
-payment details. The store passes us a product identifier and a purchase token, which the game
-keeps locally to remember what you own. Purchases can be restored from the in-game shop.</p>
+<p>In game versions that offer optional purchases (remove-ads, coin packs), payment is processed by
+<strong>RuStore Pay</strong>. Payment data is handled by VK/RuStore under its own privacy policy; we
+never see your card or payment details. After a purchase the store confirms it to the game, and the
+game keeps a local journal of the delivered purchase identifiers (purchaseId) plus the entitlements
+they unlock — this is what lets the game remember what you own and re-confirm a purchase that was
+interrupted by a crash. The journal is stored in the app's private storage and is never sent by the
+game to anyone. Where purchases are available, they can be restored from the in-game shop via
+"Restore purchases".</p>
 
 <h2>Permissions</h2>
 <p>The game itself needs only <code>VIBRATE</code> (optional haptics, can be switched off).
@@ -144,10 +158,11 @@ and <code>RECEIVE_BOOT_COMPLETED</code> for their own background tasks (e.g. def
 the game itself does not launch anything at device boot.</p>
 
 <h2>Audience</h2>
-<p>Cubix is aimed at a general and teen audience (13+); it is not designed for or directed at
-children, and it contains no user-generated content and no chat. The advertising SDKs are
-configured in an age-appropriate mode, and the game does not register children or knowingly
-collect data from them.</p>
+<p>Cubix is aimed at a general and teen audience (the store age rating applied for is 12+); it is
+not designed for or directed at children, and it contains no user-generated content and no chat.
+The advertising SDKs run in their normal mode (no child-directed flag is set, because the game is
+not child-directed), and the game does not register children or knowingly collect data from
+them.</p>
 
 <h2>Data deletion</h2>
 <p>You can delete everything the game keeps by uninstalling the app. Advertising identifiers are
