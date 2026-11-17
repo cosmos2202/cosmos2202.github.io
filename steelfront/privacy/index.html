@@ -33,13 +33,13 @@
   <nav class="toc" aria-label="Language"><a class="chip" href="#ru">Русский</a><a class="chip" href="#en">English</a><a class="chip" href="/">← На главную</a></nav>
   <div class="prose"><div id="ru" lang="ru">
 <h1>Русский</h1>
-<p><strong>Дата обновления:</strong> 16 октября 2026 г. (версия 1.0.0)</p>
+<p><strong>Дата обновления:</strong> 17 ноября 2026 г. (версия 1.1.0)</p>
 
 <h2>Коротко</h2>
 <p>«Кирпич и Сталь» — танковая аркада с видом сверху. <strong>Сама игра ничего не собирает и никуда не отправляет</strong>: прогресс хранится только на устройстве, вся игра (72 уровня кампании, бесконечная арена и режим дуэли) доступна без интернета, без аккаунта и без регистрации. В сборках есть реклама и необязательные покупки — их обеспечивают сторонние SDK, перечисленные ниже, и они обрабатывают свои данные. Сбор данных этими SDK начинается только после того, как вы ответите на диалог согласия при первом запуске; там же можно сразу выбрать игру без рекламы.</p>
 
 <h2>Что хранит приложение</h2>
-<p>Только игровой прогресс: пройденные уровни и главы, звёзды, монеты, рекорд арены, даты ежедневного уровня и сундука, окраски танка и апгрейды гаража, купленные товары и права (например «Убрать рекламу»), имя и код комнаты дуэли, которые генерируются локально, выбранный язык, настройки звука, музыки и вибрации и выбор согласия на рекламу. Всё это лежит в приватном хранилище приложения и никуда не отправляется самой игрой. При удалении приложения данные удаляются.</p>
+<p>Только игровой прогресс: пройденные уровни и главы, звёзды, монеты, рекорд арены, дату ежедневного сундука, окраски танка и апгрейды гаража, купленные товары и права (например «Убрать рекламу»), имя и код комнаты дуэли, которые генерируются локально, выбранный язык, настройки звука, музыки и вибрации и выбор согласия на рекламу. Всё это лежит в приватном хранилище приложения и никуда не отправляется самой игрой. При удалении приложения данные удаляются.</p>
 
 <h2>Реклама</h2>
 <p>Рекламу показывает <strong>«Яндекс Рекламная сеть»</strong> вместе с <strong>AppMetrica</strong>. Эти SDK могут собирать и передавать своим партнёрам: идентификаторы устройства и рекламный идентификатор (Android Advertising ID, Яндекс ID), данные о взаимодействии с рекламой (показы, клики), сведения о сети и устройстве, приблизительное местоположение — если оно разрешено в системе. Передача идёт по HTTPS. Мы эти данные не получаем и не храним. Вы можете:</p>
@@ -49,11 +49,11 @@
 <li>запретить приложению разрешение «Геолокация» в настройках Android.</li>
 </ul>
 <p>Игра показывает полноэкранные объявления только между уровнями: не раньше восьмого уровня, не посреди боя и не чаще одного раза в две минуты, а также не в каждом уровне (минимум три уровня между показами). Видео с наградой вы запускаете сами — за удвоение монет или второй сундук. Покупка «Убрать рекламу» навсегда выключает полноэкранные ролики и баннер.</p>
-<p><strong>Важно для релиза 1.0.0:</strong> в первой публичной сборке «Яндекс Рекламная сеть» работает в <em>тестовом режиме</em> с демонстрационными единицами рекламы — боевые ID рекламных блоков будут вставлены разработчиком после регистрации приложения в рекламной сети. Тестовая реклама не персонализируется и никому не оплачивается. Политика ниже описывает поведение этих SDK и в тестовом, и в боевом режиме.</p>
+<p><strong>Важно для обновления 1.1.0:</strong> SDK «Яндекс Рекламная сеть» встроен в сборку, но <em>не включён</em>: боевые ID рекламных блоков ещё не зарегистрированы, и эта сборка не показывает рекламу вовсе. Абзац выше описывает поведение этих SDK после включения боевых единиц; пока SDK не активен, рекламные данные не собираются.</p>
 
 <h2>Покупки в приложении</h2>
 <p>Необязательные покупки («Убрать рекламу», паки монет, стартовый пак) обрабатывает <strong>RuStore Pay</strong> (VK/RuStore). Платёжные данные обрабатывает RuStore по своей политике конфиденциальности; мы не видим ни карту, ни другие платёжные реквизиты. Магазин передаёт игре идентификатор товара и токен покупки, которые игра хранит локально, чтобы помнить, что у вас куплено. Покупки восстанавливаются кнопкой «Восстановить покупки» в игровом магазине.</p>
-<p><strong>Важно для релиза 1.0.0:</strong> первая публичная сборка использует RuStore Pay в <em>тестовом режиме</em>. Боевые идентификаторы товаров и договор разработчика для приёма платежей подключаются до публикации сборки.</p>
+<p><strong>Важно для обновления 1.1.0:</strong> сборка использует RuStore Pay в <em>тестовом режиме</em>. Боевые идентификаторы товаров и договор разработчика для приёма платежей подключаются до того, как покупки станут доступны публично; до этого момента игровой магазин показывается как недоступный и оплата не производится.</p>
 
 <h2>Разрешения</h2>
 <ul>
@@ -63,8 +63,9 @@
 <li><code>RECEIVE_BOOT_COMPLETED</code> — приносится «Яндекс Рекламной сетью», AppMetrica и Android WorkManager; нужен их собственным фоновым задачам, чтобы возобновляться после перезагрузки.</li>
 <li><code>com.cosmos.steelfront.<wbr>DYNAMIC_RECEIVER_<wbr>NOT_EXPORTED_<wbr>PERMISSION</code> — внутреннее разрешение библиотек AndroidX (core), которые определяют его и используют сами; пользователь его не видит.</li>
 <li><code>com.google.android.finsky.<wbr>permission.<wbr>BIND_GET_INSTALL_<wbr>REFERRER_SERVICE</code> — приносится библиотекой install referrer; по ней SDK рекламной сети может узнать реферальную ссылку установки из магазина. В этой сборке (магазин — RuStore) она только объявлена и реально не вызывается.</li>
+<li><code>BLUETOOTH</code>, <code>BLUETOOTH_ADMIN</code> (Android 11 и ниже) и <code>BLUETOOTH_CONNECT</code>, <code>BLUETOOTH_SCAN</code> (Android 12 и выше) — дуэль по Bluetooth на двух телефонах: найти и подключиться к тому единственному телефону, который ведёт комнату дуэли, и обмениваться с ним состоянием игры. <code>BLUETOOTH_SCAN</code> заявлен с флагом <code>neverForLocation</code> — из него нельзя получить вашу геолокацию. Игра сопрягается только с телефоном, чей код комнаты вы ввели; другие устройства поблизости, контакты и файлы не читаются.</li>
 </ul>
-<p>В этой версии игра не запрашивает разрешения на геолокацию, камеру, микрофон, контакты, файлы и Bluetooth. Режим дуэли в 1.0.0 играется против бота на одном телефоне; Bluetooth-транспорт между двумя телефонами планируется в следующем обновлении, и тогда же будет запрошено соответствующее разрешение Android («Устройства поблизости») и добавлено в эту политику.</p>
+<p>Дуэль по Bluetooth передаёт только состояние игры (код комнаты, позиции танков, выстрелы, счёт) между двумя телефонами; для дуэли ничего не отправляется в интернет. Разрешения на геолокацию, камеру, микрофон, контакты и файлы игра не запрашивает.</p>
 
 <h2>Возрастной рейтинг и аудитория</h2>
 <p>Магазинный рейтинг — 12+ за мультяшные танковые бои (без крови и человеческих персонажей). Игра не позиционируется как детская, не содержит чата и пользовательского контента и целенаправленно не собирает данные детей.</p>
@@ -73,19 +74,19 @@
 <p>Всё, что хранит игра, удаляется вместе с приложением или через настройки в игре. Рекламные идентификаторы сбрасываются или удаляются в настройках Android. Записи о покупках ведёт RuStore — удаление на уровне аккаунта запрашивается в его поддержке.</p>
 
 <h2>Изменения</h2>
-<p>Если новая версия изменит набор собираемых данных (например, когда в дуэли появится Bluetooth-транспорт), эта политика будет обновлена до выхода такой версии.</p>
+<p>Если новая версия изменит набор собираемых данных, эта политика будет обновлена до выхода такой версии.</p>
 
 <h2>Контакты</h2>
 <p>Вопросы по политике и по своим данным: <a href="mailto:support@cosmos-apps.org">support@cosmos-apps.org</a>. Опубликованная политика: <a href="https://cosmos-apps.org/steelfront/privacy/">https://cosmos-apps.org/steelfront/privacy/</a>.</p>
 </div><hr><div id="en" lang="en">
 <h1>English</h1>
-<p><strong>Last updated:</strong> 16 October 2026 (version 1.0.0)</p>
+<p><strong>Last updated:</strong> 17 November 2026 (version 1.1.0)</p>
 
 <h2>Summary</h2>
 <p>«Кирпич и Сталь» (Brick &amp; Steel) is a top-down tank arcade. <strong>The game itself does not collect or send any personal data</strong> — your progress is stored only on your device, and the whole game (the 72-level campaign, the endless arena and the duel mode) is playable offline, with no account and no sign-up. Some builds show advertising and offer optional in-app purchases; those features are provided by third-party SDKs listed below, which process their own data. Collection by those SDKs starts only after you answer the consent dialog shown on first launch — you can choose to play without ads at that point.</p>
 
 <h2>What the app stores on your device</h2>
-<p>Game progress only: completed levels and chapters, stars, coins, best arena score, daily-level and daily-chest dates, tank colors and garage upgrades, purchased items and entitlements (for example “remove ads”), an optional duel room name and code that you or the game generate locally, your language, sound, music and vibration settings, and your ad-consent choice. All of this lives in the app’s private storage and is never sent by the game to anyone. Uninstalling the app removes it.</p>
+<p>Game progress only: completed levels and chapters, stars, coins, best arena score, daily-chest dates, tank colors and garage upgrades, purchased items and entitlements (for example “remove ads”), an optional duel room name and code that you or the game generate locally, your language, sound, music and vibration settings, and your ad-consent choice. All of this lives in the app’s private storage and is never sent by the game to anyone. Uninstalling the app removes it.</p>
 
 <h2>Advertising</h2>
 <p>Ads are served by <strong>Yandex Mobile Ads</strong> together with <strong>AppMetrica</strong>. These SDKs may collect and share with their own partners: device and advertising identifiers (Android Advertising ID, Yandex ID), information about interaction with ads (impressions, clicks), network and device information, and approximate location when the system allows it. They transmit data over HTTPS. We do not receive or store that data ourselves. You can:</p>
@@ -95,11 +96,11 @@
 <li>turn off location permission for the app in Android settings.</li>
 </ul>
 <p>The game shows full-screen ads only between levels: never before level 8, never in the middle of a battle, and no more than once every two minutes or more often than every three levels. Rewarded videos are always your own choice (double the coins, a second chest). A one-time “Remove ads” purchase switches full-screen ads and the banner off for good.</p>
-<p><strong>Important for the 1.0.0 release:</strong> the first public build of the game runs Yandex Mobile Ads in <em>test mode</em> with placeholder ad units; the real ad unit IDs are added by the developer after the app is registered in the ad network. Test-mode ads are not personalized, and no one is paid for them. The policy below describes both test and production behavior of the same SDKs.</p>
+<p><strong>Important for the 1.1.0 update:</strong> the Yandex Mobile Ads SDK is bundled in the build but is <em>not yet enabled</em>: no real ad unit IDs have been registered, and this build never shows any advertisement. The paragraph above describes how these SDKs behave once real ad units are activated by the developer; no ad data is collected while the SDK stays inactive.</p>
 
 <h2>In-app purchases</h2>
 <p>Optional purchases (“remove ads”, coin packs, a starter pack) are processed by <strong>RuStore Pay</strong> (VK/RuStore). Payment data is handled by RuStore under its own privacy policy; we never see your card or payment details. The store passes us a product identifier and a purchase token, which the game keeps locally to remember what you own. Purchases can be restored from the in-game shop.</p>
-<p><strong>Important for the 1.0.0 release:</strong> the first public build of the game uses RuStore Pay <em>test mode</em>. The store product IDs and the developer’s payment contract are added by the developer before the build is made public.</p>
+<p><strong>Important for the 1.1.0 update:</strong> the build uses RuStore Pay in <em>test mode</em>. The store product IDs and the developer’s payment contract are added by the developer before purchases become publicly available; until then the in-game shop is shown as unavailable and no payment can be made.</p>
 
 <h2>Permissions</h2>
 <ul>
@@ -109,8 +110,9 @@
 <li><code>RECEIVE_BOOT_COMPLETED</code> — brought in by Yandex Mobile Ads / AppMetrica and Android WorkManager; used to resume their own background work after a reboot.</li>
 <li><code>com.cosmos.steelfront.<wbr>DYNAMIC_RECEIVER_<wbr>NOT_EXPORTED_<wbr>PERMISSION</code> — an internal permission of the AndroidX (core) libraries that define and use it themselves; not shown to the user.</li>
 <li><code>com.google.android.finsky.<wbr>permission.<wbr>BIND_GET_INSTALL_<wbr>REFERRER_SERVICE</code> — brought in by the install-referrer library, which can read the install referrer link from the store. In this build (the store is RuStore) it is only declared and never actually called.</li>
+<li><code>BLUETOOTH</code>, <code>BLUETOOTH_ADMIN</code> (Android 11 and below) and <code>BLUETOOTH_CONNECT</code>, <code>BLUETOOTH_SCAN</code> (Android 12 and above) — the two-phone Bluetooth duel: discovering and connecting to the one phone that hosts the duel room, and exchanging game state with it. <code>BLUETOOTH_SCAN</code> is declared with <code>neverForLocation</code>, so it is never used to derive your location. The game pairs only with the phone whose room code you enter; it never reads other nearby devices, contacts or any files.</li>
 </ul>
-<p>The game does not request location, camera, microphone, contacts, files or Bluetooth permissions in this release. The duel mode in 1.0.0 is played against the bot on one phone; Bluetooth transport between two phones is scheduled for a later update, and when it ships the corresponding Android nearby-device permission will be requested and added to this policy.</p>
+<p>The duel over Bluetooth exchanges only game state (room code, tank positions, shots, score) between the two phones; nothing is sent to the internet for the duel and no location, camera, microphone, contacts or files permissions are requested.</p>
 
 <h2>Age rating and audience</h2>
 <p>The game is rated 12+ in the store for cartoon tank combat (no blood, no human characters). It is not designed or advertised for children, does not contain chat or user-generated content, and does not knowingly collect data from children.</p>
