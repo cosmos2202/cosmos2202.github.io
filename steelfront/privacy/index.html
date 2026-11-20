@@ -33,7 +33,7 @@
   <nav class="toc" aria-label="Language"><a class="chip" href="#ru">Русский</a><a class="chip" href="#en">English</a><a class="chip" href="/">← На главную</a></nav>
   <div class="prose"><div id="ru" lang="ru">
 <h1>Русский</h1>
-<p><strong>Дата обновления:</strong> 17 ноября 2026 г. (версия 1.1.0)</p>
+<p><strong>Дата обновления:</strong> 20 ноября 2026 г. (версия 1.1.0)</p>
 
 <h2>Коротко</h2>
 <p>«Кирпич и Сталь» — танковая аркада с видом сверху. <strong>Сама игра ничего не собирает и никуда не отправляет</strong>: прогресс хранится только на устройстве, вся игра (72 уровня кампании, бесконечная арена и режим дуэли) доступна без интернета, без аккаунта и без регистрации. В сборках есть реклама и необязательные покупки — их обеспечивают сторонние SDK, перечисленные ниже, и они обрабатывают свои данные. Сбор данных этими SDK начинается только после того, как вы ответите на диалог согласия при первом запуске; там же можно сразу выбрать игру без рекламы.</p>
@@ -49,11 +49,9 @@
 <li>запретить приложению разрешение «Геолокация» в настройках Android.</li>
 </ul>
 <p>Игра показывает полноэкранные объявления только между уровнями: не раньше четвёртого уровня, не посреди боя, не в каждом уровне (минимум два уровня между показами), не в первые пять минут и не чаще одного раза в полторы минуты (объявление может показаться и при выходе из окна поражения). Видео с наградой вы запускаете сами: удвоение монет уровня, продолжение после поражения, буст перед боем, удвоение дневного сундука, +100 монет в магазине. Покупка «Убрать рекламу» навсегда выключает полноэкранные ролики и баннер.</p>
-<p><strong>Важно для обновления 1.1.0:</strong> SDK «Яндекс Рекламная сеть» встроен в сборку, но <em>не включён</em>: боевые ID рекламных блоков ещё не зарегистрированы, и эта сборка не показывает рекламу вовсе. Абзац выше описывает поведение этих SDK после включения боевых единиц; пока SDK не активен, рекламные данные не собираются.</p>
 
 <h2>Покупки в приложении</h2>
 <p>Необязательные покупки («Убрать рекламу», паки монет, стартовый пак) обрабатывает <strong>RuStore Pay</strong> (VK/RuStore). Платёжные данные обрабатывает RuStore по своей политике конфиденциальности; мы не видим ни карту, ни другие платёжные реквизиты. Магазин передаёт игре идентификатор товара и токен покупки, которые игра хранит локально, чтобы помнить, что у вас куплено. Покупки восстанавливаются кнопкой «Восстановить покупки» в игровом магазине.</p>
-<p><strong>Важно для обновления 1.1.0:</strong> сборка использует RuStore Pay в <em>тестовом режиме</em>. Боевые идентификаторы товаров и договор разработчика для приёма платежей подключаются до того, как покупки станут доступны публично; до этого момента игровой магазин показывается как недоступный и оплата не производится.</p>
 
 <h2>Разрешения</h2>
 <ul>
@@ -80,7 +78,7 @@
 <p>Вопросы по политике и по своим данным: <a href="mailto:support@cosmos-apps.org">support@cosmos-apps.org</a>. Опубликованная политика: <a href="https://cosmos-apps.org/steelfront/privacy/">https://cosmos-apps.org/steelfront/privacy/</a>.</p>
 </div><hr><div id="en" lang="en">
 <h1>English</h1>
-<p><strong>Last updated:</strong> 17 November 2026 (version 1.1.0)</p>
+<p><strong>Last updated:</strong> 20 November 2026 (version 1.1.0)</p>
 
 <h2>Summary</h2>
 <p>«Кирпич и Сталь» (Brick &amp; Steel) is a top-down tank arcade. <strong>The game itself does not collect or send any personal data</strong> — your progress is stored only on your device, and the whole game (the 72-level campaign, the endless arena and the duel mode) is playable offline, with no account and no sign-up. Some builds show advertising and offer optional in-app purchases; those features are provided by third-party SDKs listed below, which process their own data. Collection by those SDKs starts only after you answer the consent dialog shown on first launch — you can choose to play without ads at that point.</p>
@@ -96,11 +94,9 @@
 <li>turn off location permission for the app in Android settings.</li>
 </ul>
 <p>The game shows full-screen ads only between levels: not before level 4, never in the middle of a battle, at most once every two levels, never during the first five minutes and no more than once every ninety seconds (it may also appear when you leave the defeat dialog). Rewarded videos are always your own choice: double the level coins, continue after a defeat, a pre-battle boost, doubling the daily chest, +100 coins in the shop. A one-time “Remove ads” purchase switches full-screen ads and the banner off for good.</p>
-<p><strong>Important for the 1.1.0 update:</strong> the Yandex Mobile Ads SDK is bundled in the build but is <em>not yet enabled</em>: no real ad unit IDs have been registered, and this build never shows any advertisement. The paragraph above describes how these SDKs behave once real ad units are activated by the developer; no ad data is collected while the SDK stays inactive.</p>
 
 <h2>In-app purchases</h2>
 <p>Optional purchases (“remove ads”, coin packs, a starter pack) are processed by <strong>RuStore Pay</strong> (VK/RuStore). Payment data is handled by RuStore under its own privacy policy; we never see your card or payment details. The store passes us a product identifier and a purchase token, which the game keeps locally to remember what you own. Purchases can be restored from the in-game shop.</p>
-<p><strong>Important for the 1.1.0 update:</strong> the build uses RuStore Pay in <em>test mode</em>. The store product IDs and the developer’s payment contract are added by the developer before purchases become publicly available; until then the in-game shop is shown as unavailable and no payment can be made.</p>
 
 <h2>Permissions</h2>
 <ul>
